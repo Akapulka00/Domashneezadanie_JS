@@ -1,0 +1,17 @@
+body{
+  margin: .5 2rem;
+}
+
+.img{
+text-align: center;
+}
+
+.img img{
+  width: 50%;
+  height: auto;
+  opacity: 0;
+}
+.img img:hover{
+opacity: 1;
+transition:opacity 3s linear ;
+}
