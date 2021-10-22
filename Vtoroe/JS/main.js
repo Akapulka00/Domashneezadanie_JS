@@ -92,10 +92,10 @@ function chestoe(){
   while(1){
 
     if (max==min) {
-      console.log("Ваше число =",max)
+      console.log("Ваше число =",max);
       break;
     }
-    console.log("Число >=",Math.round(max-((max-min)/2)), min,max);
+    console.log("Число >=",Math.round(max-((max-min)/2)));
     let otvet= prompt("Введите ваш ответ");
     if(otvet==="да"){
       min=Math.round((max-(max-min)/2));
@@ -109,9 +109,14 @@ function chestoe(){
   }
 }
 }
-//pervoe();
-//vtoroe();
-//trete();
-//chetire ();
-//patoe();
+
+let start=prompt("Введите старт");
+console.log("Старт");
+if(start==="старт"){
+pervoe();
+vtoroe();
+trete();
+chetire ();
+patoe();
 chestoe();
+}
