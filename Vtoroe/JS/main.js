@@ -42,7 +42,12 @@ function vtoroe (){
 function trete (){
 let tarelki=parseInt(prompt("Введите количество тарелок"));
 let sredstvo=parseInt(prompt("Введите количество моющего средства"));
-if (tarelki>0 && sredstvo>0) {
+if (tarelki < 0 || sredstvo < 0) {
+  console.log('Помыть тарелки невозможно одного из компанентов не хватает');
+  return;
+}
+
+//if (tarelki>0 && sredstvo>0) {
   while((tarelki>0) && (sredstvo>0)){
     tarelki--;
   sredstvo -= 0.5;
@@ -55,9 +60,9 @@ if (tarelki>0 && sredstvo>0) {
     console.log('Кончились тарелки');
   }
 
-}else{
-  console.log('Помыть тарелки невозможно одного из компанентов не хватает');
-}
+//}else{
+  
+//}
 
 }
 function chetire (){
@@ -68,7 +73,8 @@ function chetire (){
     if(polzNum===zagadNum){
       console.log('вы угадали');
       break;
-    }else if(polzNum>zagadNum){
+    }
+     if(polzNum>zagadNum){
       console.log('загаданное число меньше');
     }else if(polzNum<zagadNum){
       console.log('загаданное число больше ');
@@ -96,11 +102,10 @@ function chestoe(){
       break;
     }
     console.log("Число >=",Math.round(max-((max-min)/2)));
-    let otvet= prompt("Введите ваш ответ");
+    let otvet= prompt(`Чсло >= ${Math.round(max-((max-min)/2))} введите ваш ответ`);
     if(otvet==="да"){
       min=Math.round((max-(max-min)/2));
-    }
-    if(otvet==="нет"){
+    } else if(otvet==="нет"){
       max=Math.floor((min+(max-min)/2));
     }
 
@@ -111,7 +116,7 @@ function chestoe(){
 }
 
 let start=prompt("Введите старт");
-console.log("Старт");
+console.log("Старты");
 if(start==="старт"){
 pervoe();
 vtoroe();
