@@ -2,6 +2,7 @@
 
 function zadanie1(){
     let sum=0;
+    let kol=0;
     let nums = [
         [23, 56, 75, -90, 123],
         [17, 0, -6429, -122],
@@ -14,10 +15,12 @@ function zadanie1(){
         for(let j=0;j<(nums[i].length);j++){
          nums[i][j]=nums[i][j]*10;
          sum+=nums[i][j];
+         kol++;
         }
      }
+     
      console.log(nums);
-     console.log(sum);
+     console.log(sum/kol);
 }
 function zadanie2(){
    let arr=[];
@@ -71,7 +74,6 @@ function zadanie5(){
    let arrLog=["Xodahe", "Gixath", "Qexeme", "Bolyky", "Fifiwu"];
    let login;
    login=prompt("Введите Login");
-   console.log()
    while(arrLog.includes(login)== true || (parseInt(login.length)<2)){
       console.log('Ваш логин уже используется!');
       login=prompt("Введите новый Login");
@@ -80,8 +82,8 @@ function zadanie5(){
       console.log('Ваш новый логин введен.')
       console.log(arrLog);
 }
-//zadanie1();
-//zadanie2();
-//zadanie3();
-//zadanie4();
+zadanie1();
+zadanie2();
+zadanie3();
+zadanie4();
 zadanie5();
