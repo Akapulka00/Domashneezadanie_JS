@@ -3,7 +3,7 @@
 function pervoe(){
   let count=parseInt(prompt("Введите номер дня недели"));
   function sravn(count){
-  if(count>=1&&count<=7)///но воскркресеньн же 7 день)
+  if(count>=1&&count<=7)
   {
     switch (count) {
       case 1:

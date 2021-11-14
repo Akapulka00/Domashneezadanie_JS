@@ -1,0 +1,15 @@
+@import "flex-grid.css";
+.book-article span{
+display: block;
+}
+.book-article img{
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+}
+.book-article{
+  padding: 1rem;
+}
+.books{
+  padding-left: 1rem;
+}
