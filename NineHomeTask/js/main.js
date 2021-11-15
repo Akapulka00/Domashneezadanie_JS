@@ -58,7 +58,7 @@ let booksByGenre = [
 ];
 
 
-function addBooks(booksArr, element){
+function addBooks(booksArr){
   let Bookcart=document.querySelector(".Bookcart");
   for (let elem of booksArr){
     let cart=document.createElement("div");
@@ -85,4 +85,4 @@ function addBooks(booksArr, element){
 
 }
 
-addBooks(booksByGenre,5);
+addBooks(booksByGenre);

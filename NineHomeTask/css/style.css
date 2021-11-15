@@ -13,3 +13,29 @@ display: block;
 .books{
   padding-left: 1rem;
 }
+/*второе */
+.animal__box_cart{
+  width: 25%;
+  text-align: center;
+  margin: 5%;
+  border: 1px solid black;
+}
+.animal__box{
+  display: block;
+
+}
+/*третье */
+.table-box{
+  text-align: center;
+}
+.table-box table{
+  display: inline-block;
+  margin-top: 10px;
+  border-collapse: collapse;
+}
+.table-box th, td{
+  padding: 1rem 2rem;
+  border: 1px solid #000;
+   text-align: center;
+
+}
