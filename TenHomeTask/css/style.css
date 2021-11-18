@@ -1,44 +1,18 @@
 @import "flex-grid.css";
-.book-article span{
-display: block;
-}
-.book-article img{
+
+.card img{
   width: 100%;
   height: auto;
   object-fit: cover;
 }
-.book-article{
+.card{
+  display:flex;
+  flex-direction:column;
+  justify-content: space-between;
   padding: 1rem;
 }
-.books{
-  padding-left: 1rem;
-}
-/*второе */
-.animal__box_cart{
-  width: 25%;
-  text-align: center;
-  margin: 5%;
-  border: 1px solid black;
-}
-.animal__box{
-  display: block;
 
-}
-/*третье */
-.table-box{
-  text-align: center;
-}
-.table-box table{
-  display: inline-block;
-  margin-top: 10px;
-  border-collapse: collapse;
-}
-.table-box th, td{
-  padding: 1rem 2rem;
-  border: 1px solid #000;
-   text-align: center;
 
-}
 /*Четвертое */
 .created__tabe tr{
 height: 15rem;
