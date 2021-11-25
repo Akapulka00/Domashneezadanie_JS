@@ -15,18 +15,28 @@
     <h1 class=".col-6">Добавление задачи</h1>
   </div>
   <div class="add__hometask_InfoFilds flex-column">
-    <form  action="Filds ">
+    <form name="Filds" novalidate >
       <div class="add__hometask_fild ">
         <label for="taskName">Название задачи</label>
-        <input type="text" required id="taskName" name="taskName" placeholder="Введите название задачи" minlength="2" maxlength="50">
+        <div class="fild">
+          <input type="text" name="taskName" required id="taskName" name="taskName" placeholder="Введите название задачи" minlength="2" maxlength="50">
+        <div class="message"></div>
+        </div>
+
       </div>
       <div class="add__hometask_fild">
         <label for="taskInfo">Описание задачи </label>
-        <textarea required id="taskInfo" name="taskInfo" placeholder="Введие описание задачи" maxlength="300" ></textarea>
+        <div class="fild">
+          <textarea required name="taskInfo" id="taskInfo" name="taskInfo" placeholder="Введие описание задачи" maxlength="300" ></textarea>
+          <div class="message"></div>
+        </div>
       </div>
       <div class="add__hometask_fild">
         <label for="taskDate">Срок выполнения задачи</label>
-        <input type="date" required id="taskDate" name="taskDate">
+        <div class="fild">
+          <input type="date" required name="taskDate" id="taskDate" name="taskDate">
+        <div class="message"></div>
+        </div>
       </div>
       <div class="add__hometask_addMember ">
         <input  class="button_members" type="button" value="Добавить участника">

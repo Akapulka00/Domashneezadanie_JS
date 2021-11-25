@@ -33,3 +33,26 @@ function Member(){
 }
 Member();
 
+/////////////////////////////////////////////////
+function setSuccess(elem){
+  elem.nextElementSibling.innerText = 'Поле заполнено верно';
+  elem.nextElementSibling.className = 'message success active';
+}
+function setError(elem, key){
+  let messages = {
+      valueMissing: 'Поле должно быть заполнено',
+      tooShort: `Минимальное количество символов ${elem.minLength}`,
+      tooLong: `Максимальное количество символов ${elem.maxLength}`
+  };
+  elem.nextElementSibling.innerText = messages[key];
+  elem.nextElementSibling.className = 'message error active';
+}
+
+const validationForm = document.forms.Filds;
+console.log(validationForm);
+validationForm.elements.taskName.addEventListener('input', function () {
+  if (this.validity.valueMissing /*required*/) setError(this, 'valueMissing');
+  else if(this.validity.tooShort/*minlength="3"*/) setError(this, 'tooShort');
+  else if (this.validity.tooLong/*maxlength="20"*/) setError(this, 'tooLong');
+  else setSuccess(this);
+});
