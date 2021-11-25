@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="/css/addStyle.css">
+  <title>Добавление дз</title>
+</head>
+<body>
+<header></header>
+<main>
+  <div class="add__hometask">
+  <div class="add__hometask_title flex-row">
+    <h1 class=".col-6">Добавление задачи</h1>
+  </div>
+  <div class="add__hometask_InfoFilds flex-column">
+    <form  action="Filds ">
+      <div class="add__hometask_fild ">
+        <label for="taskName">Название задачи</label>
+        <input type="text" required id="taskName" name="taskName" placeholder="Введите название задачи" minlength="2" maxlength="50">
+      </div>
+      <div class="add__hometask_fild">
+        <label for="taskInfo">Описание задачи </label>
+        <textarea required id="taskInfo" name="taskInfo" placeholder="Введие описание задачи" maxlength="300" ></textarea>
+      </div>
+      <div class="add__hometask_fild">
+        <label for="taskDate">Срок выполнения задачи</label>
+        <input type="date" required id="taskDate" name="taskDate">
+      </div>
+      <div class="add__hometask_addMember ">
+        <input  class="button_members" type="button" value="Добавить участника">
+        <div class="members flex-row">
+
+        </div>
+      </div>
+      <input class="add__hometask_submit" type="submit" value="Добавить задачу">
+    </form>
+
+  </div>
+  </div>
+</main>
+<script src="/js/addMain.js"></script>
+</body>
+</html>

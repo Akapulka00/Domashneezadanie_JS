@@ -1,0 +1,53 @@
+@import "flex-grid.css";
+
+body {
+  margin: 0 auto;
+  font-size: 16pt;
+  max-width: 2000px;
+}
+.add__hometask{
+  margin: 3rem 0;
+  margin-left: 8rem;
+  max-width: 2000px;
+}
+
+.add__hometask_fild{
+  display: flex;
+  justify-content: flex-start;
+  padding-top:3rem;
+}
+.add__hometask_fild textarea{
+height: 7rem;
+}
+.add__hometask_fild input,textarea{
+  -ms-flex: 0 0 50%;
+  flex: 0 0 50%;
+  max-width: 50%;
+}
+.add__hometask_fild label{
+  -ms-flex: 0 0 25%;
+  flex: 0 0 25%;
+  max-width: 25%;
+}
+.addMember_button{
+  display: block;
+  border: 1px solid black
+}
+.add__hometask_addMember{
+  padding-top:3rem;
+}
+.button_members{
+  padding:.5rem 2rem;
+  border: 1px solid rgb(70, 68, 68);
+  border-radius: 5px;
+  margin-bottom: 1rem;
+}
+
+.add__hometask_submit{
+  margin-left: 7rem;
+  margin-top: 3rem;
+  padding:.5rem 0;
+  width: 60%;
+  border: 1px solid rgb(70, 68, 68);
+  border-radius: 5px;
+}
