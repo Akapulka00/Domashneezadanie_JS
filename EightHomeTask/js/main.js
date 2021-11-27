@@ -28,6 +28,7 @@ function vtoroe(arrString){
   let i=0;
   let countStrings=new Map();
   for(let elem of arrString){
+	i=0;
     for(let prow of arrString){
       if(elem==prow){
         i++;

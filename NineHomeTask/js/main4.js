@@ -44,4 +44,4 @@ for(let j=0;j<n;j++){
 createdfield.append(table);
 }
 
-generateField(9);
+generateField(3);
