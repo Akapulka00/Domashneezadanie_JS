@@ -84,6 +84,9 @@ validationForm.elements.taskDate.addEventListener('input', function () {
 console.log(validationForm.elements);
 validationForm.elements.output.addEventListener('click', function (event) {
   event.preventDefault();
+  let title=document.querySelector(".add__hometask_title");
+  let mesage=document.querySelector(".title_massage");
+  console.log(mesage)
   if(login==validationForm.elements.taskName.value&&info==validationForm.elements.taskInfo.value&&
     date==validationForm.elements.taskDate.value){
       let autors=[];
@@ -91,7 +94,7 @@ validationForm.elements.output.addEventListener('click', function (event) {
       for(let element of autor){
         autors.push(element.value);
       }
-      console.log(autors)//тут заносим в локальное хранилище
+  //тут заносим в локальное хранилище
 
       let data={
         name:login,
@@ -99,14 +102,28 @@ validationForm.elements.output.addEventListener('click', function (event) {
         time:date,
         autor:autors
       }
-      localStorage.clear();
+     // localStorage.clear();
 
-      let dataBuff=[]
-      dataBuff.push(localStorage.getItem("data"));
+
+      if(localStorage.getItem("data")!=null){
+        let dataBuff= JSON.parse(localStorage.getItem("data"));
+      dataBuff.push(JSON.stringify(data));
+      console.log(dataBuff);
+      localStorage.setItem("data", JSON.stringify(dataBuff));
+    }else{
+      let dataBuff=[];
       dataBuff.push( JSON.stringify(data));
-      localStorage.setItem("data", dataBuff);
-
+      localStorage.setItem("data", JSON.stringify(dataBuff));
+      }
+      mesage.classList.remove("homtask_message_error")
+      mesage.classList.add("homtask_massage_ok");
+      mesage.innerText="Задача успешно была добавлена!"
+  }else{
+    mesage.classList.remove("homtask_massage_ok")
+    mesage.classList.add("homtask_message_error");
+    mesage.innerText="Поля заполнены не коректно!";
   }
+
 
 
  /* if (this.validity.valueMissing ) setError(this, 'valueMissing');
