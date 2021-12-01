@@ -10,7 +10,9 @@ body {
   margin-left: 8rem;
   max-width: 2000px;
 }
-
+.add__hometask_title{
+  align-items: center
+}
 .add__hometask_fild{
   display: flex;
   justify-content: flex-start;
@@ -19,12 +21,7 @@ body {
 .add__hometask_fild textarea{
 height: 7rem;
 }
-/*
-.add__hometask_fild input,textarea{
-  -ms-flex: 0 0 50%;
-  flex: 0 0 50%;
-  max-width: 50%;
-}*/
+
 .fild{
   -ms-flex: 0 0 50%;
   flex: 0 0 50%;
@@ -61,6 +58,25 @@ height: 7rem;
   border: 1px solid rgb(70, 68, 68);
   border-radius: 5px;
 }
-.error_active{
+.message_success{
+  margin-top:  0;
+  border: 0px;
+  border-radius: 0;
+}
+.message_error{
+  margin-top:  3px;
+  border-top: 3px solid red;
+  border-radius: 3px;
   color: red;
+  font-size: 13pt;
+}
+.homtask_massage_ok{
+  margin-left: 5rem;
+  color: green;
+  font-size: 13pt;
+}
+.homtask_message_error{
+  margin-left: 5rem;
+  color: red;
+  font-size: 13pt;
 }

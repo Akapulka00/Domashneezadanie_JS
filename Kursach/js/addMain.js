@@ -2,17 +2,16 @@
 
 let i=0;
 let delMember ;
+let login,info,date;
 function addElem(event) {
   if(i<5){
   i++;
   let editElem=document.querySelector(".members");
   let Elem=document.createElement("div");
-  //Elem.classList
   Elem.innerHTML=`<div class="members flex-row">
   <input type="text" name="nameAutor" id="nameAutor" placeholder="Введите имя участника">
   <input class="Xbutton" type="button" value="X">
 </div>`;
-console.log(i);
 editElem.append(Elem);
 delMember =document.querySelectorAll(".Xbutton");
 delMember.forEach(element => {
@@ -29,14 +28,27 @@ function delElem(event) {
 function Member(){
   let addMember =document.querySelector(".button_members");
   addMember.addEventListener('click',addElem);
-  console.log(delMember);
 }
-Member();
 
 /////////////////////////////////////////////////
 function setSuccess(elem){
-  elem.nextElementSibling.innerText = 'Поле заполнено верно';
-  elem.nextElementSibling.className = 'message success active';
+  elem.nextElementSibling.className = 'message_success';
+  elem.nextElementSibling.innerText="";
+}
+function setUnSuccess(elem){
+  let val=elem.value.split('-').reverse();
+  let nowDate = new Date();
+  nowDate=nowDate.getFullYear()*365+(nowDate.getMonth()+1)*30+nowDate.getDate();
+  val=(val[0]*1)+(val[1]*30)+(val[2]*365);
+ if(val>=nowDate){
+  elem.nextElementSibling.className = 'message_success';
+  elem.nextElementSibling.innerText="";
+  date=elem.value;
+ }else{
+   elem.nextElementSibling.innerText ="Вы не можете отправить задание задней датой!"
+   elem.nextElementSibling.className = 'message_error';
+ }
+
 }
 function setError(elem, key){
   let messages = {
@@ -45,14 +57,79 @@ function setError(elem, key){
       tooLong: `Максимальное количество символов ${elem.maxLength}`
   };
   elem.nextElementSibling.innerText = messages[key];
-  elem.nextElementSibling.className = 'message error active';
+  elem.nextElementSibling.className = 'message_error';
 }
 
 const validationForm = document.forms.Filds;
-console.log(validationForm);
 validationForm.elements.taskName.addEventListener('input', function () {
-  if (this.validity.valueMissing /*required*/) setError(this, 'valueMissing');
-  else if(this.validity.tooShort/*minlength="3"*/) setError(this, 'tooShort');
-  else if (this.validity.tooLong/*maxlength="20"*/) setError(this, 'tooLong');
-  else setSuccess(this);
+  if (this.validity.valueMissing ) setError(this, 'valueMissing');
+  else if(this.validity.tooShort) setError(this, 'tooShort');
+  else if (this.validity.tooLong) setError(this, 'tooLong');
+  else{setSuccess(this);
+      login=this.value;
+  }
 });
+validationForm.elements.taskInfo.addEventListener('input', function () {
+  if (this.validity.valueMissing ) setError(this, 'valueMissing');
+  else if(this.validity.tooShort) setError(this, 'tooShort');
+  else{
+    setSuccess(this);
+    info=this.value;
+  }
+});
+validationForm.elements.taskDate.addEventListener('input', function () {
+  if (this.validity.valueMissing ) setError(this, 'valueMissing');
+  else setUnSuccess(this);
+});
+console.log(validationForm.elements);
+validationForm.elements.output.addEventListener('click', function (event) {
+  event.preventDefault();
+  let title=document.querySelector(".add__hometask_title");
+  let mesage=document.querySelector(".title_massage");
+  console.log(mesage)
+  if(login==validationForm.elements.taskName.value&&info==validationForm.elements.taskInfo.value&&
+    date==validationForm.elements.taskDate.value){
+      let autors=[];
+      let autor=document.getElementsByName("nameAutor");
+      for(let element of autor){
+        autors.push(element.value);
+      }
+  //тут заносим в локальное хранилище
+
+      let data={
+        name:login,
+        info:info,
+        time:date,
+        autor:autors
+      }
+     // localStorage.clear();
+
+
+      if(localStorage.getItem("data")!=null){
+        let dataBuff= JSON.parse(localStorage.getItem("data"));
+      dataBuff.push(JSON.stringify(data));
+      console.log(dataBuff);
+      localStorage.setItem("data", JSON.stringify(dataBuff));
+    }else{
+      let dataBuff=[];
+      dataBuff.push( JSON.stringify(data));
+      localStorage.setItem("data", JSON.stringify(dataBuff));
+      }
+      mesage.classList.remove("homtask_message_error")
+      mesage.classList.add("homtask_massage_ok");
+      mesage.innerText="Задача успешно была добавлена!"
+  }else{
+    mesage.classList.remove("homtask_massage_ok")
+    mesage.classList.add("homtask_message_error");
+    mesage.innerText="Поля заполнены не коректно!";
+  }
+
+
+
+ /* if (this.validity.valueMissing ) setError(this, 'valueMissing');
+  else setUnSuccess(this);*/
+});
+/*
+localStorage.setItem(`login`, `${registrationForm.elements.login.value}`);
+console.log(localStorage.getItem("language"));*/
+Member();
