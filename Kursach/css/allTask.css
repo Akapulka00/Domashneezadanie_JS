@@ -1,0 +1,54 @@
+@import "flex-grid.css";
+
+body {
+  margin: 0 auto;
+  font-size: 16pt;
+  max-width: 2000px;
+}
+.task_container{
+  display: flex;
+  flex-direction: column;
+  flex: 0 1 auto;
+  margin: 0 15%;
+}
+.content h1{
+  text-align: center
+}
+.line{
+  display: inline-block;
+}
+.taskAutor{
+  display: flex;
+  justify-content: space-between;
+}
+.task_collor_black{
+  background-color: #474a51;
+  color: #dcdcdc;
+}
+.task_collor_grey{
+  background-color: #dcdcdc;
+  color: #474a51;
+}
+.Conteiner{
+margin-top: 1rem;
+margin-left: 1rem;
+margin-right: 1rem;
+border-bottom:1px solid #dcdcdc;
+}
+.bold{
+  font-weight: bold;
+}
+.button_delete{
+  position: relative;
+left: 50%;
+transform: translate(-50%, 0);
+width: 40%;
+margin-top: 3rem;
+padding: .3rem;
+border: 2px solid #a6aaab;
+border-radius: 5px;
+}
+.task_selected{
+  background-color: #ff4500;
+  color: #dcdcdc;
+}
